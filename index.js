@@ -40,6 +40,25 @@ Airplane.prototype.land = function () {
 */
 
 function Person() {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+}
+
+Person.prototype.eat = function(food) {
+  if (this.stomach.length < 10) {
+    return this.stomach.push(food);
+  } else {
+    return `I am full`;
+  }
+}
+
+Person.prototype.poop = function() {
+  return (this.stomach = []);
+};
+
+Person.prototype.toString = function() {
+  return `${this.name}, ${this.age}`;
 
 }
 
@@ -58,7 +77,29 @@ function Person() {
 */
 
 function Car() {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+}
 
+Car.prototype.fill = function(gallons) {
+  return (this.tank += gallons);
+};
+
+Car.prototype.drive = function(distance) {
+  let max = this.tank * this.milesPerGallon;
+  if (distance < max) {
+    this.odometer += distance;
+    this.tank -= distance / this.milesPerGallon;
+    return `My car has ${this.odometer} miles and ${this.tank} gallons left`;
+  } else if (distance >= max) {
+    this.odometer += max;
+    this.tank -= max / this.milesPerGallon;
+    return `My car has no gas left after driving ${max} miles.  My car now has ${this.odometer} miles and ${this.tank} gallon of gas.`;
+  } else {
+    return `Let's go!`;
+  
 }
 
 /*
@@ -69,6 +110,15 @@ function Car() {
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby() {
+  Person.call(this, name, age);
+  this.name = name;
+  this.age = age;
+  this.favoriteToy = favoriteToy;
+}
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function() {
+  return `Playing with ${this.favoriteToy}`;
 
 }
 
@@ -76,12 +126,20 @@ function Baby() {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
-*/
+  1. Window / Global Object Binding
+     --- means the 'this' keyword points to the scope of the window of the object.
 
+  2. Implicit Binding
+     --- means the 'this' keyword is called with a dot notation.
+
+  3. New Binding
+     --- means the 'this' keyword creates a 'new object' from the function constructor.
+
+  4. Explicit Binding
+     --- means that you can clearly define or set the 'this' keyword by using the function
+        .call() or ,apply()
+ 
+*/
 
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
