@@ -41,8 +41,8 @@ Airplane.prototype.land = function () {
 
 function Person(name, age) {
   this.name = name;
-  this.age = age,
-  this.stomach = []
+  this.age = age;
+  this.stomach = [];
 }
 
 Person.prototype.eat = function(someFood) {
@@ -75,10 +75,10 @@ Person.prototype.toString = function(name, age) {
 */
 
 function Car(model, milesPerGallon) {
-  this.tank = 0,
-  this.odometer = 0,
-  this.model = model,
-  this.milesPerGallon = milesPerGallon
+  this.tank = 0;
+  this.odometer = 0;
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
 }
 
 Car.prototype.fill = function(gallons) {
@@ -124,16 +124,16 @@ Baby.prototype.play = function() {
 
   In your own words explain the four principles for the "this" keyword below:
   1. Window / Global Object Binding
-     --- means the 'this' keyword points to the scope of the window of the object.
+     ---> means the 'this' keyword points to the scope of the window of the object.
 
   2. Implicit Binding
-     --- means the 'this' keyword is called with a dot notation.
+     ---> means the 'this' keyword is called with a dot notation.
 
   3. New Binding
-     --- means the 'this' keyword creates a 'new object' from the function constructor.
+     ---> means the 'this' keyword creates a 'new object' from the function constructor.
 
   4. Explicit Binding
-     --- means that you can clearly define or set the 'this' keyword by using the function
+     ---> means that you can clearly define or set the 'this' keyword by using the function
         .call() or ,apply()
  
 */
