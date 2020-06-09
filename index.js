@@ -39,25 +39,23 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
+function Person(name, age) {
   this.name = name;
-  this.age = age;
-  this.stomach = [];
+  this.age = age,
+  this.stomach = []
 }
 
-Person.prototype.eat = function(food) {
+Person.prototype.eat = function(someFood) {
   if (this.stomach.length < 10) {
-    return this.stomach.push(food);
-  } else {
-    return `I am full`;
+    this.stomach.push(someFood);
   }
 }
 
-Person.prototype.poop = function() {
-  return (this.stomach = []);
+Person.prototype.poop = function(stomach) {
+  this.stomach = [];
 };
 
-Person.prototype.toString = function() {
+Person.prototype.toString = function(name, age) {
   return `${this.name}, ${this.age}`;
 
 }
@@ -76,15 +74,15 @@ Person.prototype.toString = function() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-  this.model = model;
-  this.milesPerGallon = milesPerGallon;
-  this.tank = 0;
-  this.odometer = 0;
+function Car(model, milesPerGallon) {
+  this.tank = 0,
+  this.odometer = 0,
+  this.model = model,
+  this.milesPerGallon = milesPerGallon
 }
 
 Car.prototype.fill = function(gallons) {
-  return (this.tank += gallons);
+  this.tank += gallons;
 };
 
 Car.prototype.drive = function(distance) {
@@ -97,8 +95,7 @@ Car.prototype.drive = function(distance) {
     this.odometer += max;
     this.tank -= max / this.milesPerGallon;
     return `My car has no gas left after driving ${max} miles.  My car now has ${this.odometer} miles and ${this.tank} gallon of gas.`;
-  } else {
-    return `Let's go!`;
+  };
   
 }
 
@@ -109,7 +106,7 @@ Car.prototype.drive = function(distance) {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
+function Baby(name, age, favoriteToy) {
   Person.call(this, name, age);
   this.name = name;
   this.age = age;
